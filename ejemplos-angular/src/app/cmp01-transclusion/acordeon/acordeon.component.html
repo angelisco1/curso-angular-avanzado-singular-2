@@ -1,0 +1,11 @@
+<div class="acordeon">
+  <div class="acordeon-heading" (click)="toggleCerrado()">
+    <h3>{{titulo}}</h3>
+  </div>
+  <div class="acordeon-content" [ngClass]="{cerrado: estaCerrado, abierto: !estaCerrado}">
+    <ng-content></ng-content>
+    <div [ngStyle]="{textAlign: 'right'}">
+      <ng-content select=".footer"></ng-content>
+    </div>
+  </div>
+</div>
