@@ -11,6 +11,10 @@ import { Cmp03ComponentesDinamicosComponent } from './cmp03-componentes-dinamico
 import { VideoComponent } from './cmp03-componentes-dinamicos/video/video.component';
 import { AudioComponent } from './cmp03-componentes-dinamicos/audio/audio.component';
 import { HostDirective } from './cmp03-componentes-dinamicos/host.directive';
+import { InicioComponent } from './cmp03-componentes-dinamicos/inicio/inicio.component';
+import { NuevoItemComponent } from './cmp03-componentes-dinamicos/nuevo-item/nuevo-item.component';
+// import { MiRouterModule } from './cmp03-componentes-dinamicos/mi-router/mi-router.module';
+import { MiAppRoutingModule } from './cmp03-componentes-dinamicos/app.routes';
 
 @NgModule({
   declarations: [
@@ -22,11 +26,15 @@ import { HostDirective } from './cmp03-componentes-dinamicos/host.directive';
     Cmp03ComponentesDinamicosComponent,
     VideoComponent,
     AudioComponent,
-    HostDirective
+    HostDirective,
+    InicioComponent,
+    NuevoItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    // AppRoutingModule,
+    // MiRouterModule,
+    MiAppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
