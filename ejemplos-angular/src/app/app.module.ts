@@ -15,6 +15,7 @@ import { InicioComponent } from './cmp03-componentes-dinamicos/inicio/inicio.com
 import { NuevoItemComponent } from './cmp03-componentes-dinamicos/nuevo-item/nuevo-item.component';
 // import { MiRouterModule } from './cmp03-componentes-dinamicos/mi-router/mi-router.module';
 import { MiAppRoutingModule } from './cmp03-componentes-dinamicos/app.routes';
+import { Cmp04LazyLoadingComponent } from './cmp04-lazy-loading/cmp04-lazy-loading.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,14 @@ import { MiAppRoutingModule } from './cmp03-componentes-dinamicos/app.routes';
     AudioComponent,
     HostDirective,
     InicioComponent,
-    NuevoItemComponent
+    NuevoItemComponent,
+    Cmp04LazyLoadingComponent
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
-    // MiRouterModule,
+    AppRoutingModule,
     MiAppRoutingModule,
+    // MiRouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

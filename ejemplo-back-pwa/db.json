@@ -1,0 +1,23 @@
+{
+  "vendehumos": [
+    {
+      "id": 0,
+      "nombre": "Josef Ajram",
+      "descripcion": "Aprende a invertir y hazte rico de hoy a mañana",
+      "labels": [
+        "trading"
+      ],
+      "numVotos": 30
+    },
+    {
+      "nombre": "Kale Anders",
+      "descripcion": "Aprende inglés conmigo el traductor de Obama",
+      "numVotos": 22,
+      "labels": [
+        "cripto",
+        "trading"
+      ],
+      "id": 1
+    }
+  ]
+}
