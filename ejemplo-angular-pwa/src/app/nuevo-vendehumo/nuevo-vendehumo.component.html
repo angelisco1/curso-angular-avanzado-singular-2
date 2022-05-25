@@ -1,6 +1,6 @@
 <h2>Añade a tu vendehumo favorito</h2>
 
-<form (ngSubmit)="guardar()" [formGroup]="formVendehumo">
+<form [formGroup]="formVendehumo">
   <div>
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" formControlName="nombre">
@@ -11,13 +11,13 @@
   </div>
   <div>
     <label for="nuevo-label">Añade una etiqueta:</label>
-    <input type="text" id="nuevo-label">
+    <input type="text" id="nuevo-label" (change)="addLabel($event)">
   </div>
-  <!-- <div formArrayName="labels">
-    <ng-container *ngFor="let label of formVendehumo.get('labels').controls; let pos = index" [formGroupName]="pos">
-      <button>{{label}}</button>
+  <div formArrayName="labels">
+    <ng-container *ngFor="let label of labelsControls; let pos = index">
+      <span>- {{label.value}}</span>
     </ng-container>
-  </div> -->
+  </div>
 
-  <button type="submit">Guardar</button>
+  <button type="button" (click)="guardar()" [disabled]="formVendehumo.invalid">Guardar</button>
 </form>
