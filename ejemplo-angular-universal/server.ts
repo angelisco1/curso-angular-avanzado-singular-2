@@ -8,6 +8,11 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
+import 'localstorage-polyfill'
+import apiRoutes from './server/routes/routes'
+
+global['localStorage'] = localStorage
+
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
@@ -22,8 +27,13 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
+  server.use(express.json())
+
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
+
+  server.use('/api', apiRoutes)
+
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'

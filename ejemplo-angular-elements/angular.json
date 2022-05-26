@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ejemplo-angular-universal": {
+    "ejemplo-angular-elements": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ejemplo-angular-universal/browser",
+            "outputPath": "dist/ejemplo-angular-elements",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ejemplo-angular-universal:build:production"
+              "browserTarget": "ejemplo-angular-elements:build:production"
             },
             "development": {
-              "browserTarget": "ejemplo-angular-universal:build:development"
+              "browserTarget": "ejemplo-angular-elements:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ejemplo-angular-universal:build"
+            "browserTarget": "ejemplo-angular-elements:build"
           }
         },
         "test": {
@@ -98,75 +98,9 @@
             ],
             "scripts": []
           }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/ejemplo-angular-universal/server",
-            "main": "server.ts",
-            "tsConfig": "tsconfig.server.json"
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "development": {
-              "optimization": false,
-              "sourceMap": true,
-              "extractLicenses": false
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "ejemplo-angular-universal:build:development",
-              "serverTarget": "ejemplo-angular-universal:server:development"
-            },
-            "production": {
-              "browserTarget": "ejemplo-angular-universal:build:production",
-              "serverTarget": "ejemplo-angular-universal:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "routes": [
-              "/",
-              "/level/mega",
-              "/level/ultimate",
-              "/level/fresh",
-              "/level/rookie",
-              "/level/champion",
-              "/level/armor",
-              "/level/in training"
-            ],
-            "routesFile": "digimons-routes.txt"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "ejemplo-angular-universal:build:production",
-              "serverTarget": "ejemplo-angular-universal:server:production"
-            },
-            "development": {
-              "browserTarget": "ejemplo-angular-universal:build:development",
-              "serverTarget": "ejemplo-angular-universal:server:development"
-            }
-          },
-          "defaultConfiguration": "production"
         }
       }
     }
   },
-  "defaultProject": "ejemplo-angular-universal"
+  "defaultProject": "ejemplo-angular-elements"
 }

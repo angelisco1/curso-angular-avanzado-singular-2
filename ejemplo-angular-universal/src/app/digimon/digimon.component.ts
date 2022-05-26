@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DigimonsService, IDigimon } from '../services/digimons.service';
+import { SeoService } from '../services/seo.service';
 
 @Component({
   selector: 'app-digimon',
@@ -10,13 +11,20 @@ import { DigimonsService, IDigimon } from '../services/digimons.service';
 export class DigimonComponent implements OnInit {
   digimon: IDigimon | null = null
 
-  constructor(private digimonsService: DigimonsService, private route: ActivatedRoute) { }
+  constructor(private digimonsService: DigimonsService, private route: ActivatedRoute, private seo: SeoService) { }
 
   ngOnInit(): void {
     const name = this.route.snapshot.paramMap.get('name')
     if (name) {
+      console.log({ name })
+
+      this.seo.cambiarInfoSeo(`Digimon - ${name}`, {
+        keywords: `digimon, ${name}, api`,
+        name: `Digimon - ${name}`
+      })
+
       this.digimonsService.getDigimonByName(name)
-        .subscribe(digimon => this.digimon)
+        .subscribe(digimon => this.digimon = digimon)
     } else {
       // Redirigimos al inicio, mostramos alert
     }
