@@ -1,0 +1,14 @@
+<div>
+  <ng-container *ngIf="!cargando; else cargandoProductos">
+    <div *ngFor="let producto of productos">
+      <p>{{producto.nombre}} - {{producto.precio | currency}}</p>
+      <p>Código: {{producto.codigo}}</p>
+      <p>Quedan {{producto.stock}} productos</p>
+      <hr>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #cargandoProductos>
+  <p>Cargando productos en la máquina...</p>
+</ng-template>

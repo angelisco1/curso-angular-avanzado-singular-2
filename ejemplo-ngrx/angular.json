@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ejemplo-angular-elements": {
+    "ejemplo-ngrx": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -15,9 +15,9 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ejemplo-angular-elements",
+            "outputPath": "dist/ejemplo-ngrx",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,25 +65,25 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ejemplo-angular-elements:build:production"
+              "browserTarget": "ejemplo-ngrx:build:production"
             },
             "development": {
-              "browserTarget": "ejemplo-angular-elements:build:development"
+              "browserTarget": "ejemplo-ngrx:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "ngx-build-plus:extract-i18n",
+          "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ejemplo-angular-elements:build"
+            "browserTarget": "ejemplo-ngrx:build"
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
@@ -102,5 +102,5 @@
       }
     }
   },
-  "defaultProject": "ejemplo-angular-elements"
+  "defaultProject": "ejemplo-ngrx"
 }
