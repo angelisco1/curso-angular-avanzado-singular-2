@@ -14,6 +14,11 @@ export class VendehumosService {
     return this.http.get<Array<any>>(this.URL)
   }
 
+  /**
+   * Crea un vendehumo en la BBDD
+   * @param vendehumo El vendehumos que vamos a guardar
+   * @returns el observable con el vendehumo guardado
+   */
   createVendehumo(vendehumo: any): Observable<any> {
     return this.http.post<any>('http://localhost:3001/vendehumos', vendehumo)
   }

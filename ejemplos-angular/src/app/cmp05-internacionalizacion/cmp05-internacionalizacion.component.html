@@ -1,0 +1,11 @@
+<h1>{{ 'CMP5.titulo' | translate }}</h1>
+
+<select (change)="cambiarLang($event)">
+  <option *ngFor="let lang of listaLang" [value]="lang" [selected]="lenguajeSeleccionado === lang">{{ 'CMP5.SELECT.' +
+    lang | translate }}</option>
+</select>
+
+<p>{{ 'CMP5.hola' | translate }}</p>
+
+<p>{{ 'CMP5.precio' | translate }}: {{ precio | currency:'EUR':undefined:undefined:lenguajeSeleccionado }}</p>
+<p>{{ 'CMP5.fecha' | translate }}: {{ fecha | date:'dd/MMMM/yyyy':undefined:lenguajeSeleccionado }}</p>

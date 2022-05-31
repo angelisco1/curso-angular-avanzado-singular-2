@@ -30,9 +30,10 @@ export class MaquinaExpEffects {
           .pipe(first())
       }),
       map(({ producto }) => {
-        if (producto) {
+        if (producto && producto.stock > 0) {
           return sacarProducto({ producto })
         }
+        // Aquí podríamos emitir una Action que se encargue de mostrar mensajes de error en la máquina, como por ejemplo, "No hay stock del producto 13", "No has introducido suficiente dinero", "No hay ningún producto asociado al código 24"
         return { type: 'EMPTY' }
       })
     )

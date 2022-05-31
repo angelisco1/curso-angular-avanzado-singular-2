@@ -1,0 +1,12 @@
+{
+  "CMP5": {
+    "titulo": "Internationalization",
+    "hola": "Hello world",
+    "precio": "Price",
+    "fecha": "Date",
+    "SELECT": {
+      "en": "English",
+      "es": "Spanish"
+    }
+  }
+}

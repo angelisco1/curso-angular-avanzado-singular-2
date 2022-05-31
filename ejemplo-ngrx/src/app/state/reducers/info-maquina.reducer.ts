@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { cargarProductos, pedirProductos } from "../actions/productos.actions";
+import { cargarProductos, pedirProductos, sacarProducto } from "../actions/productos.actions";
 import { InfoMaquinaState } from "../app.types";
 
 const initialState: InfoMaquinaState = {
@@ -24,6 +24,13 @@ export const infoMaquinaReducer = createReducer(
       ...state,
       cargando: false,
       totalProductos: action.productos.reduce((acc, producto) => acc += producto.stock, 0)
+    }
+  }),
+  on(sacarProducto, (state, action) => {
+    return {
+      ...state,
+      totalRecaudado: state.totalRecaudado + action.producto.precio,
+      productosVendidos: state.productosVendidos + 1
     }
   })
 )
